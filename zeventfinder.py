@@ -149,6 +149,7 @@ try:
  noverify=bool(distutils.util.strtobool(ConfigSectionMap("Zabbix API")["no_verify"]))
 except:
  pass
+print username,api
 
 # override settings if they are provided as arguments
 if args.username:
@@ -174,13 +175,16 @@ if not api:
  sys.exit("Error: API URL is not set")
 
 # Setup Zabbix API connection
-zapi = ZabbixAPI(api)
+print api
+zapi = ZabbixAPI(api, user=username, password=password)
+print "OK"
 
 if noverify is True:
  zapi.session.verify = False
 
 # Login to the Zabbix API
-zapi.login(username, password)
+print username
+#zapi.login(username, password)
 
 ##################################
 # Start actual API logic

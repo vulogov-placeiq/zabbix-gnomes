@@ -76,7 +76,7 @@ try:
  password=ConfigSectionMap("Zabbix API")['password']
  api=ConfigSectionMap("Zabbix API")['api']
  noverify=bool(distutils.util.strtobool(ConfigSectionMap("Zabbix API")["no_verify"]))
-except:
+except KeyboardInterrupt:
  pass
 
 # override settings if they are provided as arguments

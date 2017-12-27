@@ -105,13 +105,13 @@ if not api:
  sys.exit("Error: API URL is not set")
 
 # Setup Zabbix API connection
-zapi = ZabbixAPI(api)
+zapi = ZabbixAPI(api, user=username, password=password)
 
 if noverify is True:
  zapi.session.verify = False
 
 # Login to the Zabbix API
-zapi.login(username, password)
+#zapi.login(username, password)
 
 ##################################
 # Start actual API logic
